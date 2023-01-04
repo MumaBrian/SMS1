@@ -186,4 +186,7 @@ class TeacherFileUploadView(generics.GenericAPIView):
                             status=status.HTTP_400_BAD_REQUEST
                             )
 
-    
+
+class StudentFileUploadView(generics.GenericAPIView):
+    serializer_class=UploadSerializer
+    queryset=TaskUpload.objects.all()
