@@ -21,9 +21,9 @@ class StudentModel(models.Model):
     gender = models.CharField(
         max_length=1, choices=(('m', ('Male')), ('f', ('Female'))),
         blank=True, null=True)
-    file = models.FileField(upload_to='uploads/%y/%m')
-    test_score = models.IntegerField(default=0)
-    exam_score = models.IntegerField(default=0)
+    file = models.FileField(upload_to='uploads/%y/%m',blank=True)
+    # test_score = models.IntegerField(default=0)
+    # exam_score = models.IntegerField(default=0)
     
     
     def __str__(self):
