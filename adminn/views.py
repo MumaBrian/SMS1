@@ -4,7 +4,7 @@ from classinfo.models import ClassInfo
 from classinfo.serializers import ClassInfoSerializer
 from parent.models import ParentInfo
 from parent.serializers import ParentSerializer
-from student.serializers import StudentSerializer,StudentUploadSerializer
+from student.serializers import StudentSerializer,StudentUploadSerializer,UserSerializer
 from student.models import StudentModel
 from subjectinfo.models import SubjectInfo
 from subjectinfo.serializers import SubjectInfoSerializer
