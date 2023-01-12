@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('rest_framework.urls')),
     path('teacher/', include('teacher.urls',)),
     path('adminn/', include('adminn.urls',)),
+    path('student/',include('student.urls')),
 
 
 ]+ static(

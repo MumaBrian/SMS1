@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from .models import StudentModel
-
+from .models import SubjectInfo
 class SubjectInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model=StudentModel
-        fields=['tile','teacher','student','classroom']
+        model=SubjectInfo
+        fields=['title','teacher','student','classroom']

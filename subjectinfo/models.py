@@ -9,7 +9,7 @@ from teacher.models import TeacherInfo
 class SubjectInfo(models.Model):
     title=models.CharField(max_length=20)
     teacher=models.ManyToManyField(TeacherInfo)
-    student=models.ManyToManyField(StudentModel)
+    student=models.ManyToManyField(StudentModel,related_name='subjectinfos')
     classroom=models.ForeignKey(ClassInfo,on_delete=models.CASCADE)
     
     def __str__(self):

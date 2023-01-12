@@ -4,7 +4,7 @@ from teacher.models import TeacherInfo
 # Create your models here.
 
 class ClassInfo(models.Model):
-    name=models.CharField(max_length=20)
+    name=models.CharField(max_length=200)
     teacher=models.ManyToManyField(TeacherInfo)
     
     def __str__(self):

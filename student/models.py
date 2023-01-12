@@ -17,7 +17,7 @@ class StudentModel(models.Model):
     contact=models.IntegerField()
     address=models.CharField(max_length=20)
     current_class = models.ForeignKey(
-        ClassInfo, on_delete=models.SET_NULL, blank=True, null=True)
+        ClassInfo, on_delete=models.CASCADE, blank=True, null=True)
     gender = models.CharField(
         max_length=1, choices=(('m', ('Male')), ('f', ('Female'))),
         blank=True, null=True)
