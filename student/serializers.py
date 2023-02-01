@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import StudentModel
+from .models import StudentModel,Chatbot
 import phonenumbers 
 from django.core.exceptions import ValidationError
 
@@ -38,3 +38,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['phone_number']
 
 
+
+class ChatbotSerializer(serializers.ModelField):
+    class Meta:
+        model=Chatbot
+        fields=('api_key','conversation_id')

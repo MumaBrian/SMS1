@@ -1,6 +1,12 @@
-from django.urls import path
+from django.urls import path,include
 from student import views
+from rest_framework.routers import DefaultRouter
+
+
 urlpatterns = [
-    path('',views.DownloadFileView.as_view()),
-    path('number/',views.UserView.as_view()),
+    path('pdf/',views.DownloadFileView.as_view()),
+    path('',views.chatbot_view, name='chatbot'),
+    
 ]
+
+

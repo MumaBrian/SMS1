@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2#6nres1o03cwf1(vt-^6=$@cwo%aq!4@x1c14zh#q7-8xf(yr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'subjectinfo.apps.SubjectinfoConfig',
     'rest_framework.authtoken',
     'django_filters',
-    'phonenumber_field',
+    'drf_spectacular'
    
 
 ]
@@ -174,4 +174,12 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
         'drf_excel.renderers.XLSXRenderer',
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"
+}
+
+SPECTACULAR_SETTINGS = {
+"TITLE": "School Management System",
+"DESCRIPTION": "A sample SMS for pactice purposes",
+"VERSION": "3.0.0",
+# OTHER SETTINGS
 }

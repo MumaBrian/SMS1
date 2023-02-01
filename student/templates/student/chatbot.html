@@ -1,0 +1,9 @@
+<!– myapp/templates/myapp/chatbot.html –>
+
+<h1>Chatbot</h1>
+
+<form method="GET" action="{% url 'chatbot' %}">
+    {% csrf_token %}
+    <input type="text" name="user_input">
+    <input type="submit" value="Submit">
+</form>

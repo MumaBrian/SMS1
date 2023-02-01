@@ -28,3 +28,7 @@ class StudentModel(models.Model):
     
     def __str__(self):
         return " {}-{} ".format(self.firstname, self.lastname)
+
+class Chatbot(models.Model):
+    api_key=models.CharField(max_length=255)
+    conversation_id=models.CharField(max_length=255,null=True,blank=True)

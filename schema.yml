@@ -1,0 +1,1505 @@
+openapi: 3.0.3
+info:
+  title: Blog API Project
+  version: 1.0.0
+  description: A sample blog to learn about DRF
+paths:
+  /adminn/class/:
+    get:
+      operationId: adminn_class_list
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassInfo'
+          description: ''
+    post:
+      operationId: adminn_class_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+          description: ''
+  /adminn/class-details/{id}/:
+    get:
+      operationId: adminn_class_details_retrieve
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+          description: ''
+    put:
+      operationId: adminn_class_details_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClassInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+          description: ''
+    patch:
+      operationId: adminn_class_details_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedClassInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedClassInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedClassInfo'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/ClassInfo'
+          description: ''
+    delete:
+      operationId: adminn_class_details_destroy
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /adminn/parent/:
+    get:
+      operationId: adminn_parent_list
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Parent'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Parent'
+          description: ''
+    post:
+      operationId: adminn_parent_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Parent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Parent'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Parent'
+          description: ''
+  /adminn/parent-details/{id}/:
+    get:
+      operationId: adminn_parent_details_retrieve
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Parent'
+          description: ''
+    put:
+      operationId: adminn_parent_details_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Parent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Parent'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Parent'
+          description: ''
+    patch:
+      operationId: adminn_parent_details_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedParent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedParent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedParent'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Parent'
+          description: ''
+    delete:
+      operationId: adminn_parent_details_destroy
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /adminn/student/:
+    get:
+      operationId: adminn_student_list
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+          description: ''
+    post:
+      operationId: adminn_student_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+  /adminn/student-details/{id}/:
+    get:
+      operationId: adminn_student_details_retrieve
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+    put:
+      operationId: adminn_student_details_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+    patch:
+      operationId: adminn_student_details_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedStudent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedStudent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedStudent'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+    delete:
+      operationId: adminn_student_details_destroy
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /adminn/subject/:
+    get:
+      operationId: adminn_subject_list
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubjectInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubjectInfo'
+          description: ''
+    post:
+      operationId: adminn_subject_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+          description: ''
+  /adminn/subject-details/{id}/:
+    get:
+      operationId: adminn_subject_details_retrieve
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+          description: ''
+    put:
+      operationId: adminn_subject_details_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+          description: ''
+    patch:
+      operationId: adminn_subject_details_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectInfo'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SubjectInfo'
+          description: ''
+    delete:
+      operationId: adminn_subject_details_destroy
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /adminn/teacher/:
+    get:
+      operationId: adminn_teacher_list
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeacherInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+    post:
+      operationId: adminn_teacher_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+  /adminn/teacher-details/{id}/:
+    get:
+      operationId: adminn_teacher_details_retrieve
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+    put:
+      operationId: adminn_teacher_details_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+    patch:
+      operationId: adminn_teacher_details_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTeacherInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTeacherInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTeacherInfo'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+    delete:
+      operationId: adminn_teacher_details_destroy
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - adminn
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /adminn/teacher-upload/:
+    post:
+      operationId: adminn_teacher_upload_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - adminn
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeacherUpload'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeacherUpload'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherUpload'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherUpload'
+          description: ''
+  /student/pdf/:
+    get:
+      operationId: student_pdf_list
+      tags:
+      - student
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+          description: ''
+    post:
+      operationId: student_pdf_create
+      tags:
+      - student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+  /teacher/:
+    post:
+      operationId: teacher_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      tags:
+      - teacher
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeacherUpload'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeacherUpload'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeacherUpload'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherUpload'
+          description: ''
+  /teacher/excel/:
+    get:
+      operationId: teacher_excel_list
+      tags:
+      - teacher
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+    post:
+      operationId: teacher_excel_create
+      tags:
+      - teacher
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeacherInfo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/TeacherInfo'
+          description: ''
+components:
+  schemas:
+    BlankEnum:
+      enum:
+      - ''
+    ClassInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 200
+        teacher:
+          type: array
+          items:
+            type: integer
+      required:
+      - name
+      - teacher
+    GenderEnum:
+      enum:
+      - m
+      - f
+      type: string
+    NullEnum:
+      enum:
+      - null
+    Parent:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 50
+        child:
+          type: array
+          items:
+            type: integer
+        address:
+          type: string
+          maxLength: 30
+        contact:
+          type: integer
+        image:
+          type: string
+          format: uri
+      required:
+      - address
+      - child
+      - contact
+    PatchedClassInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 200
+        teacher:
+          type: array
+          items:
+            type: integer
+    PatchedParent:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 50
+        child:
+          type: array
+          items:
+            type: integer
+        address:
+          type: string
+          maxLength: 30
+        contact:
+          type: integer
+        image:
+          type: string
+          format: uri
+    PatchedStudent:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firstname:
+          type: string
+          maxLength: 200
+        email:
+          type: string
+          maxLength: 250
+        lastname:
+          type: string
+          maxLength: 250
+        year:
+          type: string
+          format: date
+        admission_id:
+          type: string
+          maxLength: 7
+        admission_date:
+          type: string
+          format: date-time
+          readOnly: true
+        image:
+          type: string
+          format: uri
+        DoB:
+          type: string
+          format: date
+        age:
+          type: integer
+        contact:
+          type: integer
+        address:
+          type: string
+          maxLength: 20
+        gender:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        file:
+          type: string
+          format: uri
+        current_class:
+          type: integer
+          nullable: true
+    PatchedSubjectInfo:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 20
+        teacher:
+          type: array
+          items:
+            type: integer
+        student:
+          type: array
+          items:
+            type: integer
+        classroom:
+          type: integer
+    PatchedTeacherInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firstname:
+          type: string
+          maxLength: 30
+        lastname:
+          type: string
+          maxLength: 30
+        contact:
+          type: integer
+          nullable: true
+        age:
+          type: integer
+          nullable: true
+        address:
+          type: string
+          maxLength: 30
+        employment_date:
+          type: string
+          format: date
+          nullable: true
+        image:
+          type: string
+          format: uri
+          nullable: true
+        file:
+          type: string
+          format: uri
+          nullable: true
+        email:
+          type: string
+          maxLength: 250
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firstname:
+          type: string
+          maxLength: 200
+        email:
+          type: string
+          maxLength: 250
+        lastname:
+          type: string
+          maxLength: 250
+        year:
+          type: string
+          format: date
+        admission_id:
+          type: string
+          maxLength: 7
+        admission_date:
+          type: string
+          format: date-time
+          readOnly: true
+        image:
+          type: string
+          format: uri
+        DoB:
+          type: string
+          format: date
+        age:
+          type: integer
+        contact:
+          type: integer
+        address:
+          type: string
+          maxLength: 20
+        gender:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        file:
+          type: string
+          format: uri
+        current_class:
+          type: integer
+          nullable: true
+      required:
+      - address
+      - admission_date
+      - admission_id
+      - age
+      - contact
+      - email
+      - firstname
+      - id
+      - lastname
+      - year
+    SubjectInfo:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 20
+        teacher:
+          type: array
+          items:
+            type: integer
+        student:
+          type: array
+          items:
+            type: integer
+        classroom:
+          type: integer
+      required:
+      - classroom
+      - student
+      - teacher
+      - title
+    TeacherInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firstname:
+          type: string
+          maxLength: 30
+        lastname:
+          type: string
+          maxLength: 30
+        contact:
+          type: integer
+          nullable: true
+        age:
+          type: integer
+          nullable: true
+        address:
+          type: string
+          maxLength: 30
+        employment_date:
+          type: string
+          format: date
+          nullable: true
+        image:
+          type: string
+          format: uri
+          nullable: true
+        file:
+          type: string
+          format: uri
+          nullable: true
+        email:
+          type: string
+          maxLength: 250
+      required:
+      - address
+      - email
+      - firstname
+      - id
+      - lastname
+    TeacherUpload:
+      type: object
+      properties:
+        file:
+          type: string
+          format: uri
+          nullable: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
